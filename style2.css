@@ -1,0 +1,65 @@
+
+/* Ensure layout works on very small screens */
+@media (max-width: 480px) {
+  .header-wrap {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping */
+    justify-content: space-between; /* Space between logo and menu */
+    align-items: center;
+    padding: 0 10px; /* some padding on sides */
+  }
+
+  .logo h1 {
+    font-size: 1.2rem; /* smaller title on small screens */
+    margin: 0;
+    flex: 1 1 auto; /* allow it to shrink but take available space */
+  }
+
+  
+}
+
+
+
+/* Hide hamburger by default */
+#menu-icon {
+  display: none;
+}
+
+/* Show hamburger on mobile screens only */
+@media (max-width: 768px) {
+  #menu-icon {
+    display: block;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 1001;
+    margin-left: auto;
+  }
+}
+
+/* Default nav visible on desktop */
+nav ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+/* Hide nav on mobile and toggle with menu icon */
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background: #0f2f55;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 220px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 1000;
+    transition: all 0.3s ease-in-out;
+  }
+
+  nav ul.show-menu {
+    display: flex;
+  }
+}
